@@ -5,8 +5,8 @@
     </div>
     <v-row>
       <v-col cols="3" sm="1" md="4" v-for="(a, index) in data" :key="index">
-        <Category_card :category="a" />
-        <v-btn><NuxtLink :to="`/categories/${a.id}`">Details</NuxtLink></v-btn>
+        <Category_card :category="a" :link="`/categories/${a.id}`" />
+        <!-- <v-btn><NuxtLink :to="`/categories/${a.id}`">Details</NuxtLink></v-btn> -->
       </v-col>
       
     </v-row>
@@ -17,6 +17,7 @@
 const client = useSupabaseClient();
 const { data } = await useAsyncData("area", async () => {
   const { data } = await client.from("area").select("*");
+  // console.log(data);
   return data;
 });
 </script>

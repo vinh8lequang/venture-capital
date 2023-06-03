@@ -1,7 +1,9 @@
 <template>
   <v-card class="mx-auto" max-width="344" color="#f0e9e9">
-    <v-img :src="category.image" height="200px" cover></v-img>
-
+    <NuxtLink :to="link">
+      <v-img :src="category.image" height="200px" cover></v-img>
+    </NuxtLink>
+    
     <v-card-title>
       {{ category.name}}
     </v-card-title>
@@ -31,7 +33,7 @@
 </template>
 
 <script setup>
-const { category } = defineProps(["category"]);
+const { category, link } = defineProps(["category", "link"]);
 </script>
 
 <script>
