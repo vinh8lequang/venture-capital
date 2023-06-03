@@ -1,7 +1,6 @@
 <template>
   <div id="info" style="visibility: false">
     <v-card-title class="text-h6 text-md-h5 text-lg-h4" id="new">
-      <!-- {{ single[0].name }} -->
       {{ data[0].name }}
     </v-card-title>
   </div>

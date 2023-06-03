@@ -23,5 +23,6 @@ const { data } = await useAsyncData("projects", async () => {
   // console.log(data);
   return data;
 });
+console.log(data)
 </script>
 <style scoped></style>
