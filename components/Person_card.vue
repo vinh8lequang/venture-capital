@@ -4,11 +4,7 @@
       max-width="344"
       color="#f0e9e9"
     >
-      <v-img
-        src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-        height="200px"
-        cover
-      ></v-img>
+      <v-img :src="person.image" height="200px" cover></v-img>
   
       <v-card-title>
         {{person.name}}
@@ -39,7 +35,7 @@
           <v-divider></v-divider>
   
           <v-card-text>
-            {{person.Description}}
+            {{person.description}}
           </v-card-text>
         </div>
       </v-expand-transition>
