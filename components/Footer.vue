@@ -1,16 +1,17 @@
 <template>
   <div>
     <v-row justify="center" no-gutters>
+      <NuxtLink v-for="(link, index) in links"
+        :key="index" :to="`/about/${link.url}`">
       <v-btn
-        v-for="(link, index) in links"
-        :key="index"
         color="white"
         variant="text"
         class="mx-2"
         rounded="xl"
       >
-        <NuxtLink :to="`/about/${link.url}`">{{ link.title }}</NuxtLink>
+        {{ link.title }}
       </v-btn>
+      </NuxtLink>
     </v-row>
   </div>
 </template>

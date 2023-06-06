@@ -4,7 +4,7 @@
     <div class="content-container">
       <slot />
     </div>
-    <Footer />
+    <Footer></Footer>
   </div>
 </template>
 
