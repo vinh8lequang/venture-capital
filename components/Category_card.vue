@@ -1,36 +1,56 @@
 <template>
-  <v-card class="mx-auto" max-width="344" color="#f0e9e9">
-    <NuxtLink :to="link">
-      <v-img :src="category.image" height="200px" cover></v-img>
-    </NuxtLink>
-    
-    <v-card-title>
-      {{ category.name}}
-    </v-card-title>
-
-    <v-card-subtitle>
-      here is a subtitle
-    </v-card-subtitle>
-
-    <v-card-actions>
-      <v-btn color="orange-lighten-2" variant="text"> See more </v-btn>
-
-      <v-spacer></v-spacer>
-
-      <v-btn :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'" @click="show = !show"></v-btn>
-    </v-card-actions>
-
-    <v-expand-transition>
-      <div v-show="show">
-        <v-divider></v-divider>
-
-        <v-card-text>
-          {{ category.description }}
-        </v-card-text>
+  <v-card class="mx-auto" max-width=95% color="#f0e9e9">
+     <NuxtLink :to="link">
+      <div class="container">
+        <v-img :src="category.image" height="250px" cover></v-img>
+        <div class="centered">{{ category.name }}</div>
       </div>
-    </v-expand-transition>
+    </NuxtLink>
   </v-card>
 </template>
+
+<style>
+.container {
+  position: relative;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.category-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.v-card-subtitle {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 10px;
+}
+
+.v-btn {
+  font-size: 14px;
+  text-transform: none;
+}
+
+.v-card-text {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+</style>
 
 <script setup>
 const { category, link } = defineProps(["category", "link"]);
