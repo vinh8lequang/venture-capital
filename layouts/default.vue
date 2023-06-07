@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: rgb(254, 254, 254);
 }
 .content-container {
   flex-grow: 1;

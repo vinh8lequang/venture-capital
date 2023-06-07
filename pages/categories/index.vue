@@ -4,9 +4,8 @@
       <h1 class="text-3xl font-bold mb-4">All categories</h1>
     </div>
     <v-row>
-      <v-col cols="3" sm="1" md="4" v-for="(a, index) in data" :key="index">
+      <v-col cols="12" sm="6" md="4" v-for="(a, index) in data" :key="index">
         <Category_card :category="a" :link="`/categories/${a.id}`" />
-        <!-- <v-btn><NuxtLink :to="`/categories/${a.id}`">Details</NuxtLink></v-btn> -->
       </v-col>
       
     </v-row>

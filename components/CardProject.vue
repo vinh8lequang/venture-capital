@@ -1,20 +1,15 @@
 <template>
-  <v-card class="mx-auto" max-width="344" color="#f0e9e9">
+  <v-card class="mx-auto" max-width="344" color="rgb(0, 0, 0, 0.1)">
     <NuxtLink :to="link">
       <v-img :src="project.image" height="200px" cover></v-img>
     </NuxtLink>
 
-    <v-card-title>
-      {{ project.name }}
-    </v-card-title>
-
-    <v-card-subtitle> </v-card-subtitle>
-
+    
     <v-card-actions>
-      <v-btn color="orange-lighten-2" variant="text" @click="show = !show">
-        See more
-      </v-btn>
 
+      <v-card-title>
+      {{ project.name }}
+      </v-card-title>
       <v-spacer></v-spacer>
 
       <v-btn

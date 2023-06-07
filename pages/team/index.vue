@@ -5,7 +5,7 @@
     </div>
 
     <v-row>
-      <v-col cols="3" sm="1" md="4" v-for="(p, index) in data" :key="index">
+      <v-col cols="12" sm="6" md="4" v-for="(p, index) in data" :key="index">
         <Person_card :person="p" />
       </v-col>
     </v-row>

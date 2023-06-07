@@ -2,12 +2,12 @@
   <div class="pb-15">
     <div class="p-4">
       <v-card-title class="text-h6 text-md-h5 text-lg-h4"
-        >All projects</v-card-title
+        >PROJECTS</v-card-title
       >
     </div>
 
     <v-row>
-      <v-col cols="2" sm="1" md="3" v-for="(p, index) in data" :key="index">
+      <v-col cols="6" sm="4" md="3" v-for="(p, index) in data" :key="index">
         <CardProject :project="p" :link="`/projects/${p.id}`" />
       </v-col>
     </v-row>
