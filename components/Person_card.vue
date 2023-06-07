@@ -1,20 +1,28 @@
 <template>
-  <v-card class="mx-auto" max-width="80%" color="#f0e9e9" @mouseover="showText = true" @mouseout="showText = false">
-    <v-img :src="person.image" height="100%" cover></v-img>
+  <v-card class="mx-auto" max-width="80%" color="rgba(0, 0, 0, 0.8)" @mouseover="showText = true" @mouseout="showText = false">
+    <v-img :src="person.image" height="130%" cover></v-img>
+    
+    <div class="hover-area"  >
+      <div class="hover-text" v-if="showText">
+        <div>
+          {{ person.education}}
+        </div>
+        <div>
+          {{ person.experience}}
+        </div>
+      </div>
+     
+    </div>
+    <v-card-title color="white">
+      {{ person.name }} {{ person.lastname }}  
 
-    <v-card-title>
-      {{ person.name }}
     </v-card-title>
 
     <v-card-subtitle>
-      {{ person.email }}
+      {{person.function}}
     </v-card-subtitle>
 
-    <div class="hover-area" v-if="showText" >
-      <div class="hover-text">
-        Text to show when hovered
-      </div>
-    </div>
+    
   </v-card>
 </template>
 
@@ -25,8 +33,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px;
-  border-radius: 5px;
+  padding: 5%;
+  border-radius: 5%;
   font-weight: bold;
 }
 
