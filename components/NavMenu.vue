@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-toolbar color="#fff">
+    <v-toolbar color="#e0e0e0">
       <!-- Navigation Tabs -->
       <v-tabs v-model="tab" color="#203C8A" align-tabs="center" class="ml-4">
         <NuxtLink to="/"><v-tab>Home</v-tab></NuxtLink>
