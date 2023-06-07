@@ -7,7 +7,7 @@
     </div>
 
     <v-row>
-      <v-col cols="6" sm="4" md="3" v-for="(p, index) in data" :key="index">
+      <v-col cols="12" sm="6" md="4" v-for="(p, index) in data" :key="index">
         <CardProject :project="p" :link="`/projects/${p.id}`" />
       </v-col>
     </v-row>
@@ -23,6 +23,6 @@ const { data } = await useAsyncData("projects", async () => {
   // console.log(data);
   return data;
 });
-console.log(data)
+console.log(data);
 </script>
 <style scoped></style>
