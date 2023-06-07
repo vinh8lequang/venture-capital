@@ -1,7 +1,9 @@
 <template>
     <div class="pb-15 justify-center">
         <div class="p-4">
-            <h1 class="text-6xl font-bold mb-4">Newsletter</h1>
+            <v-card-title class="text-h6 text-md-h5 text-lg-h4"
+        >Newsletter</v-card-title
+      >
         </div>
 
         <div class="d-flex justify-center items-center">
@@ -55,6 +57,7 @@
                     clearable
                     :rules="emailRules"></v-text-field>
 
+                    <v-spacer></v-spacer>
                     <v-btn  
                     rounded="xl"
                     size="large"
@@ -62,11 +65,12 @@
                     color="black" 
                     text-color="white"
                     width="20%"
+                    @click="clearInput(); popUp();"
                     >
                         Submit
-                    </v-btn>
+                    </v-btn>    
 
-                    <v-dialog
+                    <!-- <v-dialog
                         v-model="dialog"
                         activator="parent"
                         width="auto"
@@ -83,10 +87,10 @@
                             variant="flat"
                             color="black" 
                             text-color="white"
-                            @click="popUp">Close</v-btn>
+                            @click="close">Close</v-btn>
                         </v-card-actions>
                         </v-card>
-                    </v-dialog>
+                    </v-dialog> -->
                 </v-card-actions>
              </v-card>
         </div>
@@ -99,15 +103,18 @@
       emailRules: [ 
         v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
       ],
-      dialog: false,
-      disabled: true
+      dialog: false
     }),
     methods:{
        clearInput() {
-          this.$refs.inputRef.reset()
+            this.$refs.inputRef.reset()
+        
        },
        popUp() {
         this.dialog = true
+       },
+       close() {
+        this.dialog = false
        }
     }
   }
