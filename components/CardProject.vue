@@ -1,14 +1,12 @@
 <template>
-  <v-card class="mx-auto" max-width="344" color="rgb(0, 0, 0, 0.1)">
+  <v-card class="mx-auto" max-width="95%" color="rgb(0, 0, 0, 0.1)">
     <NuxtLink :to="link">
       <v-img :src="project.image" height="200px" cover></v-img>
     </NuxtLink>
 
-    
     <v-card-actions>
-
       <v-card-title>
-      {{ project.name }}
+        {{ project.name }}
       </v-card-title>
       <v-spacer></v-spacer>
 

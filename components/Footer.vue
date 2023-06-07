@@ -1,16 +1,14 @@
 <template>
   <div>
     <v-row justify="center" no-gutters>
-      <NuxtLink v-for="(link, index) in links"
-        :key="index" :to="`/about/${link.url}`">
-      <v-btn
-        color="white"
-        variant="text"
-        class="mx-2"
-        rounded="xl"
+      <NuxtLink
+        v-for="(link, index) in links"
+        :key="index"
+        :to="`/about/${link.url}`"
       >
-        {{ link.title }}
-      </v-btn>
+        <v-btn color="white" variant="text" class="mx-2" rounded="xl">
+          {{ link.title }}
+        </v-btn>
       </NuxtLink>
     </v-row>
   </div>
@@ -23,6 +21,7 @@ const links = [
   { url: "history", title: "History" },
   { url: "newsletter", title: "Newsletter" },
   { url: "legal", title: "Legal" },
+  { url: "faq", title: "FAQ" },
 ];
 </script>
 

@@ -14,10 +14,10 @@ export default {
 
 <style scoped>
 .nav-menu {
-  height: 70px;
+  /* height: 80px; */
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(0, 0, 0, 0.4);
+  background-color: #e0e0e0;
 }
 </style>
