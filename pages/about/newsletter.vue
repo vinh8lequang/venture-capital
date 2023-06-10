@@ -49,13 +49,12 @@
                 </v-card-item>
                  <v-card-actions>
                     <v-text-field
-                    ref="inputRef"
-                    hide-details="auto"
-                    label="Email address"
-                    type="email"
-                    variant="solo"
-                    clearable
-                    :rules="emailRules"></v-text-field>
+                        ref="form"
+                        v-model="email"
+                        :rules="emailRules"
+                        label="E-mail"
+                        required
+                    ></v-text-field>
 
                     <v-spacer></v-spacer>
                     <v-btn  
@@ -65,32 +64,24 @@
                     color="black" 
                     text-color="white"
                     width="20%"
-                    @click="clearInput(); popUp();"
+                    @click="validate(); open();"
                     >
                         Submit
-                    </v-btn>    
+                    </v-btn>     
 
-                    <!-- <v-dialog
-                        v-model="dialog"
-                        activator="parent"
-                        width="auto"
-                    >
-                        <v-card>
-                        <v-card-text>
-                            Thank you for joining us!
-                        </v-card-text>
-                        <v-card-actions>
-                            <v-btn 
-                            block
-                            rounded="xl"
-                            size="large"
-                            variant="flat"
-                            color="black" 
-                            text-color="white"
-                            @click="close">Close</v-btn>
-                        </v-card-actions>
-                        </v-card>
-                    </v-dialog> -->
+                    <v-dialog
+                  v-model="dialog"
+                  width="auto"
+                >
+                  <v-card>
+                    <v-card-text>
+                      Thank you for joining us.
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-btn color="primary" block @click="dialog = false">Close Dialog</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
                 </v-card-actions>
              </v-card>
         </div>
@@ -100,23 +91,27 @@
 <script>
   export default {
     data: () => ({
-      emailRules: [ 
-        v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
+      email: '',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()\\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v) || 'E-mail must be valid',
       ],
-      dialog: false
+      dialog: false,
     }),
-    methods:{
-       clearInput() {
-            this.$refs.inputRef.reset()
-        
-       },
-       popUp() {
+
+    methods: {
+      async validate () {
+        const { valid } = await this.$refs.form.validate()
+        console.log(valid)
+        if (valid) {
+            
+          this.$refs.form.reset()
+        }
+      },
+      open () {
         this.dialog = true
-       },
-       close() {
-        this.dialog = false
-       }
-    }
+      }
+    },
   }
 </script>
 
