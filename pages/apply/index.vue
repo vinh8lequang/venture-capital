@@ -47,7 +47,7 @@
                   color="rgb(0,0,0, 0.4)"
                   class="mt-4"
                   block
-                  @click="validate(); open();"
+                  @click="validate"
                 >
                   Apply
                 </v-btn>
@@ -70,7 +70,11 @@
                       Thank you for applying.
                     </v-card-text>
                     <v-card-actions>
-                      <v-btn color="primary" block @click="dialog = false">Close Dialog</v-btn>
+                      <v-btn 
+                      color="black" 
+                      text-color="white"
+                      block 
+                      @click="dialog = false">Close Dialog</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-dialog>
@@ -111,7 +115,7 @@
         const { valid } = await this.$refs.form.validate()
 
         if (valid) {
-
+          this.dialog = true,
           this.$refs.form.reset()
         }
       },
