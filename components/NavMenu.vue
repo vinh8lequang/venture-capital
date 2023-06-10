@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-toolbar color="rgb(0,0,0, 0.4)">
+    <v-toolbar>
       <!-- Navigation Tabs -->
       <v-tabs v-model="tab" color="#324496" align-tabs="center" class="ml-4">
         <NuxtLink to="/"><v-tab>Home</v-tab></NuxtLink>
@@ -13,9 +13,11 @@
       <div class="flex-grow-1"></div>
       <!-- Create a flexible space to push buttons to the right -->
       <div class="mr-4">
-        <NuxtLink to="/apply"
-          ><v-btn color="#4e76e6" class="ml-2">Apply</v-btn></NuxtLink
-        >
+        <NuxtLink to="/apply">
+          <v-btn color="#4e76e6" class="ml-2">
+            <span class="font-bold text-lg">Apply</span>
+          </v-btn>
+        </NuxtLink>
       </div>
     </v-toolbar>
   </v-card>
