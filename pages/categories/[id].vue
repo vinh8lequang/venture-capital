@@ -1,31 +1,47 @@
 <template>
-  <div>
-    <v-card-title class="text-h6 text-md-h5 text-lg-h4" id="new">
-      {{ area.name }}
-    </v-card-title>
-    <div class="pb-15">
-    <div class="p-4">
-      <h1 class="text-3xl font-bold mb-4"></h1>
+  <div class="pb-15 px-10">
+    <div class="py-4">
+      <div class="my-breadcrumbs">
+        <span v-for="(item, index) in items" :key="index">
+          <span v-if="!item.disabled">
+            <router-link
+              :to="item.href"
+              :class="{
+                'blue-link': index < items.length - 1,
+                'last-link': index === items.length - 1,
+              }"
+              >{{ item.title }}</router-link
+            >
+          </span>
+          <span v-else class="last-link">{{ area.name }}</span>
+          <span v-if="index < items.length - 1" class="divider">/</span>
+        </span>
+      </div>
     </div>
-
-    <div class="card">
-      <div class="grid grid-cols-2 gap-10">
-        <div class="p-7">
-          <v-img :src="area.image" height="50vh" cover></v-img>
-        </div>
-        <div class="p-7">
-          <p class="mb">
-            {{ area.description }}
-          </p>
+    <div class="mb-4" style="display: flex; align-items: center">
+      <h1 class="text-2xl md:text-3xl lg:text-6xl font-thin text-center">
+        {{ area.name }}
+      </h1>
+    </div>
+    <div class="pb-15">
+      <div class="card">
+        <div class="grid grid-cols-2 gap-10">
+          <div class="py-7 pr-7">
+            <v-img :src="area.image" height="50vh" cover></v-img>
+          </div>
+          <div class="py-7 pl-7">
+            <p class="mb text-2xl">
+              {{ area.description }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
-    </div>
     <v-divider
-  :thickness="3"
-  class="border-opacity-75"
-  color="success"
-></v-divider>
+      :thickness="3"
+      class="border-opacity-75"
+      color="success"
+    ></v-divider>
     <v-card-title class="text-h6 text-md-h5 text-lg-h4">
       Related projects:
     </v-card-title>
@@ -41,24 +57,70 @@
 <script setup>
 const {
   params: { id },
-} = useRoute()
+} = useRoute();
 
-//let projects_area = await $fetch("/server/getareas/"+id) // this needs to be changed for the project and area so that we connect 
+//let projects_area = await $fetch("/server/getareas/"+id) // this needs to be changed for the project and area so that we connect
 let projects = new Array();
-let area ;
+let area;
 const client = useSupabaseClient();
 const { data } = await useAsyncData("areaproject", async () => {
-  const { data } = await client.from("areaproject")
-  .select("project_id, area_id, projects(*), area(*)")
+  const { data } = await client
+    .from("areaproject")
+    .select("project_id, area_id, projects(*), area(*)");
   return data;
 });
 
 data._value.forEach((item) => {
-    if(item.area_id == id){
-      console.log("project found")
-      projects.push(item.projects);
-      area = item.area
-    }
+  if (item.area_id == id) {
+    console.log("project found");
+    projects.push(item.projects);
+    area = item.area;
+  }
 });
-console.log(area)
+console.log(area);
 </script>
+
+<script>
+export default {
+  data: () => ({
+    items: [
+      {
+        title: "Home",
+        disabled: false,
+        href: "/",
+      },
+      {
+        title: "Categories",
+        disabled: false,
+        href: "/categories",
+      },
+      {
+        title: "Link 1",
+        disabled: true,
+        href: "/projects",
+      },
+    ],
+  }),
+};
+</script>
+
+<style scoped>
+.my-breadcrumbs {
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+}
+
+.my-breadcrumbs .divider {
+  margin: 0 10px;
+  color: #999;
+}
+
+.blue-link {
+  color: #344c8e;
+}
+
+.last-link {
+  color: rgb(55, 55, 55);
+}
+</style>

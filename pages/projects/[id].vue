@@ -1,30 +1,35 @@
 <template>
-  <div class="pl-5 pt-5">
-    <div class="my-breadcrumbs">
-      <span v-for="(item, index) in items" :key="index">
-        <span v-if="!item.disabled">
-          <router-link
-            :to="item.href"
-            :class="{ 'blue-link': index < items.length - 1 }"
-            >{{ item.title }}</router-link
-          >
+  <div class="pb-15 px-10">
+    <div class="py-4">
+      <div class="my-breadcrumbs">
+        <span v-for="(item, index) in items" :key="index">
+          <span v-if="!item.disabled">
+            <router-link
+              :to="item.href"
+              :class="{
+                'blue-link': index < items.length - 1,
+                'last-link': index === items.length - 1,
+              }"
+              >{{ item.title }}</router-link
+            >
+          </span>
+          <span v-else class="last-link">{{ data[0].name }}</span>
+          <span v-if="index < items.length - 1" class="divider">/</span>
         </span>
-        <span v-else class="last-bread">{{ data[0].name }}</span>
-        <span v-if="index < items.length - 1" class="divider">/</span>
-      </span>
+      </div>
     </div>
-
-    <v-card-title class="text-h6 text-md-h5 text-lg-h4" id="new">
-      {{ data[0].name }}
-    </v-card-title>
-
+    <div class="mb-4" style="display: flex; align-items: center">
+      <h1 class="text-2xl md:text-3xl lg:text-6xl font-thin text-center">
+        {{ data[0].name }}
+      </h1>
+    </div>
     <div class="card">
       <div class="grid grid-cols-2 gap-10">
-        <div class="p-7">
+        <div class="py-7 pr-7">
           <v-img :src="data[0].image" height="40vh" cover></v-img>
         </div>
-        <div class="p-7">
-          <p class="mb">
+        <div class="py-7 pl-7">
+          <p class="mb text-2xl">
             {{ data[0].longDescription }}
           </p>
         </div>
@@ -75,6 +80,11 @@ export default {
   data: () => ({
     items: [
       {
+        title: "Home",
+        disabled: false,
+        href: "/",
+      },
+      {
         title: "Projects",
         disabled: false,
         href: "/projects",
@@ -89,23 +99,23 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .my-breadcrumbs {
   display: flex;
   align-items: center;
-  padding-left: 18px;
+  padding-left: 0;
 }
 
 .my-breadcrumbs .divider {
-  margin: 0 5px;
+  margin: 0 10px;
   color: #999;
 }
 
 .blue-link {
-  color: #3256ba;
+  color: #344c8e;
 }
 
-.last-bread {
-  color: rgb(92, 92, 92);
+.last-link {
+  color: rgb(55, 55, 55);
 }
 </style>
