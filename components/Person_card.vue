@@ -20,6 +20,20 @@
     <v-card-subtitle class="function-title">
       {{person.function}}
     </v-card-subtitle>
+
+    <div class="pa-4">
+              <v-btn
+                class="mr-2"
+                icon="mdi-facebook"
+              ></v-btn>
+              <v-btn
+                class="mr-2"
+                icon="mdi-gmail"
+              ></v-btn>
+              <v-btn
+                icon="mdi-linkedin"
+              ></v-btn>
+        </div>
     
   </v-card>
 </template>
