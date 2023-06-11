@@ -1,10 +1,10 @@
 <template>
     <div class="pb-15 justify-center">
-        <div class="p-4">
-            <v-card-title class="text-h6 text-md-h5 text-lg-h4"
-        >Newsletter</v-card-title
+        <div class="p-4" style="display: flex; align-items: center">
+      <v-card-title class="text-h6 text-md-h5 text-lg-h4" style="margin: 0 auto"
+        >NEWSLETTER </v-card-title
       >
-        </div>
+    </div>
 
         <div class="grid h-screen place-items-center">
 

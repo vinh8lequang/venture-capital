@@ -18,11 +18,12 @@
         </span>
       </div>
     </div>
-    <div class="mb-4" style="display: flex; align-items: center">
-      <h1 class="text-2xl md:text-3xl lg:text-6xl font-thin text-center">
-        CATEGORIES
-      </h1>
+    <div class="p-4" style="display: flex; align-items: center">
+      <v-card-title class="text-h6 text-md-h5 text-lg-h4" style="margin: 0 auto"
+        >CATEGORIES</v-card-title
+      >
     </div>
+    <div class="py-4"></div>
     <v-row>
       <v-col cols="12" sm="6" md="4" v-for="(a, index) in data" :key="index">
         <Category_card :category="a" :link="`/categories/${a.id}`" />
