@@ -10,18 +10,7 @@
         <div class="email">
           {{ person.email}}
         </div>
-      </div>
-     
-    </div>
-    <v-card-title class="name-title">
-      {{ person.name }} {{ person.lastname }}  
-    </v-card-title>
-
-    <v-card-subtitle class="function-title">
-      {{person.function}}
-    </v-card-subtitle>
-
-    <div class="pa-4">
+        <div class="pa-4">
               <v-btn
                 class="mr-2"
                 icon="mdi-facebook"
@@ -34,6 +23,17 @@
                 icon="mdi-linkedin"
               ></v-btn>
         </div>
+      </div>
+     
+    </div>
+    <v-card-title class="name-title">
+      {{ person.name }} {{ person.lastname }}  
+    </v-card-title>
+
+    <v-card-subtitle class="function-title">
+      {{person.function}}
+    </v-card-subtitle>
+
     
   </v-card>
 </template>
