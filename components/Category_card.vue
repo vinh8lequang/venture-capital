@@ -2,7 +2,7 @@
   <v-card class="mx-auto" max-width=95% color="#f0e9e9">
      <NuxtLink :to="link">
       <div class="container">
-        <v-img :src="category.image" height="250px" cover></v-img>
+        <v-img :src="category.image" height="270px" style ="width: 130%" cover></v-img>
         <div class="centered">{{ category.name }}</div>
       </div>
     </NuxtLink>
@@ -16,14 +16,14 @@
 
 .centered {
   position: absolute;
-  top: 50%;
+  top: 95%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
-  font-size: 24px;
+  color: rgb(0, 0, 0, 0.90);
+  font-size: 18px;
   font-weight: bold;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgb(50, 68, 150, 0);
   padding: 10px;
   border-radius: 5px;
 }
