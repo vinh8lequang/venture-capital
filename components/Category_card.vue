@@ -20,7 +20,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: rgb(0, 0, 0, 0.90);
-  font-size: 18px;
+  font-size: 15px;
   font-weight: bold;
   text-align: center;
   background-color: rgb(50, 68, 150, 0);
