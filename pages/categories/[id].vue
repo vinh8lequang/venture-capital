@@ -37,6 +37,22 @@
         </div>
       </div>
     </div>
+
+    <div class="p-4">
+      <v-row>
+        <v-col cols="11" pl="8">
+          <v-btn icon="mdi-arrow-left" v-if="id > 1">
+            <NuxtLink :to="`/categories/${prev}`">Prev</NuxtLink>
+          </v-btn>
+        </v-col>
+        <v-col pr="8">
+          <v-btn icon="mdi-arrow-right" v-if="id < 8">
+            <NuxtLink :to="`/categories/${next}`">Next</NuxtLink>
+          </v-btn>
+        </v-col>
+      </v-row>
+    </div>
+
     <v-divider
       :thickness="3"
       class="border-opacity-75"
@@ -58,6 +74,8 @@
 const {
   params: { id },
 } = useRoute();
+let next = Math.min(+id + +1, 7);
+let prev = Math.max(0, +id - +1);
 
 //let projects_area = await $fetch("/server/getareas/"+id) // this needs to be changed for the project and area so that we connect
 let projects = new Array();

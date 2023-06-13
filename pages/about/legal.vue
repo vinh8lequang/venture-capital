@@ -19,9 +19,49 @@
                 <v-card-title class="text-caption text-md-h5 font-weight-light">Ownership of trademarks, etc.</v-card-title>
                 <p>All text, photos, graphics, logos, content and other Materials on this Website are protected by United States and foreign copyright, trademark and other applicable laws. In particular, all trademarks, trade names and logos displayed on this Website are proprietary to Sequoia Capital, its affiliates or their respective owners, and this Website grants no license to them. </p>
                 <v-card-title class="text-caption text-md-h5 font-weight-light">Contact information</v-card-title>
-                <p>Any questions, concerns or complaints regarding these Terms should be sent to ... c/o ...@horizoneqp.com.</p>
+                <p>Any questions, concerns or complaints regarding these Terms should be sent to complianceus@horizoneqp.com.</p>
             </v-card>
         </div>
+
+        <v-card class="mx-auto" max-width="80%" height="80%" color="rgba(0, 0, 0, 0.1)" @mouseover="showText = true" @mouseout="showText = false">
+    
+    
+    <div class="hover-area"  >
+      <div class="hover-text" v-if="showText">
+        <div>
+          experience
+        </div>
+        <div class="email">
+          email
+        </div>
+      </div>
+     
+    </div>
+    <v-card-title class="name-title">
+      Name
+    </v-card-title>
+
+    <v-card-subtitle class="function-title">
+     Descriotion
+    </v-card-subtitle>
+
+     
+        <div class="pa-4">
+              <v-btn
+                class="mr-2 justify-center"
+                icon="mdi-facebook"
+              ></v-btn>
+              <v-btn
+                class="mr-2"
+                icon="mdi-gmail"
+              ></v-btn>
+              <v-btn
+                icon="mdi-linkedin"
+              ></v-btn>
+        </div>
+      
+    
+  </v-card>
     </div>
 </template>
 

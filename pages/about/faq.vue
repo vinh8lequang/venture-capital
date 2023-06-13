@@ -17,8 +17,6 @@
                     ></v-divider>
                 <v-card-title class="text-caption text-md-h5 font-weight-light">Who should I reach out to?</v-card-title>
                 <p>Our partner profiles can help you learn more about them and areas of interest, but the short answer is that you don’t need to worry about connecting with the “right” partner. We share our networks and expertise and we will always route opportunities to whoever is the best fit. When you drop one of us a line, you drop all of us a line.</p>
-                <v-card-title class="text-caption text-md-h5 font-weight-light">What is hardtech?</v-card-title>
-                <p>Solving a hard technological problem using an interdisciplinary mix of technology and engineering. Hardtech startups face technological risk in their early days and need patient and supportive capital to help them go through R&D cycles. HCVC exists to bring this type of capital to the most ambitious hardtech founders.</p>
                 <v-card-title class="text-caption text-md-h5 font-weight-light">What is HEP’s Investment Thesis?</v-card-title>
                 <p>We invest in early-stage companies that automate and digitize the physical world. We partner with companies building software- or hardware-based products (or a combination of both) as long as they are able to create long-term competitive advantages through technical defensibility. Members of Horizon Equity Partners alumni are our first source of new investments, but we also invest in companies outside of HEP.</p>
                 <v-card-title class="text-caption text-md-h5 font-weight-light">Does HEP invest globally?</v-card-title>

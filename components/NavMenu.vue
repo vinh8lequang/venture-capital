@@ -14,7 +14,7 @@
       <!-- Create a flexible space to push buttons to the right -->
       <div class="mr-4">
         <NuxtLink to="/apply">
-          <v-btn color="#4e76e6" class="ml-2">
+          <v-btn color="#2d4197" class="ml-2">
             <span class="font-bold text-lg">Apply</span>
           </v-btn>
         </NuxtLink>
