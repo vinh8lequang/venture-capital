@@ -15,17 +15,40 @@
         <i class="fa fa-chevron-down"></i>
       </div>
       <div class="bottom-text">
-        <p>Scroll down to explore more!</p>
+        <p>Scroll down to see our latest projects!</p>
       </div>
     </div>
   </div>
+  <div class="pb-15 px-10">
+    <v-row>
+      <v-col
+        cols="12"
+        sm="4"
+        md="3"
+        v-for="(p, index) in data.slice(0, 4)"
+        :key="index"
+      >
+        <CardProject :project="p" :link="`/projects/${p.id}`" />
+      </v-col>
+    </v-row>
+  </div>
 </template>
+
+<script setup>
+const client = useSupabaseClient();
+const { data } = await useAsyncData("projects", async () => {
+  const { data } = await client.from("projects").select("*");
+  // console.log(data);
+  return data;
+});
+console.log(data);
+</script>
 
 <style scoped>
 .home-container {
   display: flex;
   flex-direction: column;
-  padding-top: 4em;
+  padding: 4em;
   align-items: center;
   height: 100vh;
 }
@@ -81,7 +104,13 @@
 }
 
 .arrow-container {
+  display: flex;
   width: 100%;
+  height: 50px;
+  /* position: sticky; */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .arrow-down {
@@ -113,6 +142,10 @@
   width: 100%;
   color: #888;
   font-size: 18px;
+}
+
+.projects-container {
+  margin-top: 4em;
 }
 </style>
 

@@ -1,14 +1,11 @@
 <template>
-  <v-card class="mx-auto" max-width="80%" height="80%" color="rgba(0, 0, 0, 0.1)" @mouseover="showText = true" @mouseout="showText = false">
+  <v-card class="mx-auto" max-width="80%" height="500px" color="rgba(0, 0, 0, 0.1)" @mouseover="showText = true" @mouseout="showText = false">
     <v-img :src="person.image" height="80%" cover></v-img>
     
     <div class="hover-area"  >
       <div class="hover-text" v-if="showText">
         <div>
           {{ person.experience}}
-        </div>
-        <div class="email">
-          {{ person.email}}
         </div>
         <div class="pa-4">
               <v-btn
@@ -24,7 +21,6 @@
               ></v-btn>
         </div>
       </div>
-     
     </div>
     <v-card-title class="name-title">
       {{ person.name }} {{ person.lastname }}  
