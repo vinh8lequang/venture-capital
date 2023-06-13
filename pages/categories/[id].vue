@@ -42,12 +42,14 @@
       class="border-opacity-75"
       color="success"
     ></v-divider>
+    <div class="py-4"></div>
     <v-card-title class="text-h6 text-md-h5 text-lg-h4">
       Related projects:
     </v-card-title>
+    <div class="py-4"></div>
 
     <v-row>
-      <v-col cols="3" sm="1" md="4" v-for="(p, index) in projects" :key="index">
+      <v-col cols="12" sm="5" md="4" v-for="(p, index) in projects" :key="index">
         <CardProject :project="p" :link="`/projects/${p.id}`" />
       </v-col>
     </v-row>

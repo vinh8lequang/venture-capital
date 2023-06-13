@@ -16,7 +16,7 @@
 
 .centered {
   position: absolute;
-  top: 95%;
+  top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: rgb(0, 0, 0, 0.90);
