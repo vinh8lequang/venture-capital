@@ -7,9 +7,6 @@
         <div>
           {{ person.experience}}
         </div>
-        <div class="email">
-          {{ person.email}}
-        </div>
         <div class="pa-4">
               <v-btn
                 class="mr-2"
@@ -24,7 +21,6 @@
               ></v-btn>
         </div>
       </div>
-     
     </div>
     <v-card-title class="name-title">
       {{ person.name }} {{ person.lastname }}  
