@@ -44,7 +44,7 @@
           </v-btn>
         </v-col>
         <v-col pr="8">
-          <v-btn icon="mdi-arrow-right" v-if="id < 8">
+          <v-btn icon="mdi-arrow-right" v-if="id < 14">
             <NuxtLink :to="`/projects/${next}`">Next</NuxtLink>
           </v-btn>
         </v-col>
