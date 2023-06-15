@@ -13,7 +13,7 @@
               >{{ item.title }}</router-link
             >
           </span>
-          <span v-else class="last-link">{{ data[0].name }}</span>
+          <span v-else class="last-link">Projects</span>
           <span v-if="index < items.length - 1" class="divider">/</span>
         </span>
       </div>
@@ -36,7 +36,7 @@
 <script setup>
 const client = useSupabaseClient();
 const { data } = await useAsyncData("projects", async () => {
-  const { data } = await client.from("projects").select("*").order('id');
+  const { data } = await client.from("projects").select("*").order("id");
   // console.log(data);
   return data;
 });

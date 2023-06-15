@@ -26,11 +26,7 @@
       {{ person.function }}
     </v-card-subtitle>
   </v-card>
-  <div class="pa-4" style="display: flex; justify-content: center">
-    <v-btn class="mr-2" icon="mdi-facebook"></v-btn>
-    <v-btn class="mr-2" icon="mdi-gmail"></v-btn>
-    <v-btn icon="mdi-linkedin"></v-btn>
-  </div>
+  
 </template>
 
 <style>

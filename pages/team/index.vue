@@ -27,6 +27,11 @@
     <v-row>
       <v-col cols="12" sm="6" md="4" v-for="(p, index) in data" :key="index">
         <Person_card :person="p" />
+        <div class="pa-4" style="display: flex; justify-content: center">
+          <v-btn class="mr-2" icon="mdi-facebook"></v-btn>
+          <v-btn class="mr-2" icon="mdi-gmail"></v-btn>
+          <v-btn icon="mdi-linkedin"></v-btn>
+        </div>
       </v-col>
     </v-row>
   </div>
@@ -79,4 +84,3 @@ export default {
   color: rgb(55, 55, 55);
 }
 </style>
-
