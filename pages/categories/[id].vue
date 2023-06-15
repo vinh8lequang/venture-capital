@@ -25,7 +25,7 @@
     </div>
     <div class="pb-15">
       <div class="card">
-        <div class="grid grid-cols-2 gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div class="py-7 pr-7">
             <v-img :src="area.image" height="50vh" cover></v-img>
           </div>
@@ -65,7 +65,13 @@
     <div class="py-4"></div>
 
     <v-row>
-      <v-col cols="12" sm="5" md="4" v-for="(p, index) in projects" :key="index">
+      <v-col
+        cols="12"
+        sm="5"
+        md="4"
+        v-for="(p, index) in projects"
+        :key="index"
+      >
         <CardProject :project="p" :link="`/projects/${p.id}`" />
       </v-col>
     </v-row>

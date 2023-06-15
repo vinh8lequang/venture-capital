@@ -1,41 +1,43 @@
 <template>
-  <v-card class="mx-auto" max-width="80%" height="500px" color="rgba(0, 0, 0, 0.1)" @mouseover="showText = true" @mouseout="showText = false">
+  <v-card
+    class="mx-auto"
+    max-width="80%"
+    height="500px"
+    color="rgba(0, 0, 0, 0.1)"
+    @mouseover="showText = true"
+    @mouseout="showText = false"
+  >
     <v-img :src="person.image" height="80%" cover></v-img>
-    
-    <div class="hover-area"  >
+
+    <div class="hover-area">
       <div class="hover-text" v-if="showText">
         <div>
-          {{ person.experience}}
-        </div>
-        <div class="pa-4">
-              <v-btn
-                class="mr-2"
-                icon="mdi-facebook"
-              ></v-btn>
-              <v-btn
-                class="mr-2"
-                icon="mdi-gmail"
-              ></v-btn>
-              <v-btn
-                icon="mdi-linkedin"
-              ></v-btn>
+          {{ person.experience }}
         </div>
       </div>
     </div>
-    <v-card-title class="name-title">
-      {{ person.name }} {{ person.lastname }}  
-    </v-card-title>
+    <template v-if="!showText">
+      <v-card-title class="name-title">
+        {{ person.name }} {{ person.lastname }}
+      </v-card-title>
 
-    <v-card-subtitle class="function-title">
-      {{person.function}}
-    </v-card-subtitle>
-
-    
+      <v-card-subtitle class="function-title">
+        {{ person.function }}
+      </v-card-subtitle>
+    </template>
+    <template v-else>
+      <div class="pa-4" style="display: flex; justify-content: center">
+        <v-btn class="mr-2" icon="mdi-facebook"></v-btn>
+        <v-btn class="mr-2" icon="mdi-gmail"></v-btn>
+        <v-btn icon="mdi-linkedin"></v-btn>
+      </div>
+    </template>
   </v-card>
 </template>
 
 <style>
-.name-title, .function-title {
+.name-title,
+.function-title {
   text-align: center;
 }
 
@@ -61,6 +63,7 @@
   color: white;
   transition: opacity 0.3s ease;
   text-align: left;
+  pointer-events: none;
 }
 
 .hover-area {
@@ -75,7 +78,7 @@
 </style>
 
 <script setup>
-const { person } = defineProps(['person']);
+const { person } = defineProps(["person"]);
 </script>
 
 <script>
@@ -84,6 +87,6 @@ export default {
     return {
       showText: false,
     };
-  }
-}
+  },
+};
 </script>

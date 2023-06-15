@@ -52,7 +52,7 @@ export default {
       },
       {
         title: "Categories",
-        disabled: false,
+        disabled: true,
         href: "/categories",
       },
     ],
