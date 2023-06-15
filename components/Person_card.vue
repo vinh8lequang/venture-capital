@@ -2,6 +2,7 @@
   <v-card
     class="mx-auto"
     max-width="80%"
+    width="400px"
     height="500px"
     color="rgba(0, 0, 0, 0.1)"
     @mouseover="showText = true"

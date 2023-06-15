@@ -28,13 +28,26 @@
         <div class="py-7 pr-7">
           <v-img :src="data[0].image" height="40vh"></v-img>
         </div>
-        <div class="py-7 pl-7">
+        <v-col>
+          <v-row>
+            <Person_card :person=data[0].people />
+          </v-row>
+        </v-col>
+      </div>
+    </div>
+
+    <div class="py-4"></div>
+    <v-card-title class="text-h6 text-md-h5 text-lg-h4">
+      Description:
+    </v-card-title>
+    <div class="py-4"></div>
+    
+
+    <div class="py-7 pl-7">
           <p class="mb text-2xl">
             {{ data[0].longDescription }}
           </p>
         </div>
-      </div>
-    </div>
 
     <div class="p-4">
       <v-row>
@@ -73,7 +86,7 @@ let prev = Math.max(0, +id - +1);
 // const { data } = await useFetch("/api/projects/" + id);
 const client = useSupabaseClient();
 const { data } = await useAsyncData("projects", async () => {
-  const { data } = await client.from("projects").select("*").eq("id", id);
+  const { data } = await client.from("projects").select("*, people(*)").eq("id", id);
   // console.log(data);
   return data;
 });
