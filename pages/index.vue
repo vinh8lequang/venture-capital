@@ -15,19 +15,13 @@
         <i class="fa fa-chevron-down"></i>
       </div>
       <div class="bottom-text">
-        <p>Scroll down to see our latest projects!</p>
+        <p>Scroll down to see some relevant projects</p>
       </div>
     </div>
   </div>
   <div class="pb-15 px-10">
     <v-row>
-      <v-col
-        cols="12"
-        sm="4"
-        md="3"
-        v-for="(p, index) in data"
-        :key="index"
-      >
+      <v-col cols="12" sm="4" md="3" v-for="(p, index) in data" :key="index">
         <CardProject :project="p" :link="`/projects/${p.id}`" />
       </v-col>
     </v-row>
@@ -37,7 +31,10 @@
 <script setup>
 const client = useSupabaseClient();
 const { data } = await useAsyncData("projects", async () => {
-  const { data } = await client.from("projects").select("*").eq("relevant", "1");
+  const { data } = await client
+    .from("projects")
+    .select("*")
+    .eq("relevant", "1");
   console.log(data.value);
   return data;
 });
@@ -125,6 +122,7 @@ console.log(data);
   font-size: 24px;
   color: #888;
   transition: transform 0.3s;
+  animation: arrowAnimation 1.5s infinite alternate;
 }
 
 .arrow-down:hover {
@@ -133,6 +131,18 @@ console.log(data);
 
 .fa-chevron-down {
   margin-top: 0.5em;
+}
+
+@keyframes arrowAnimation {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(5px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 .bottom-text {
