@@ -35,7 +35,7 @@
 <script setup>
 const client = useSupabaseClient();
 const { data } = await useAsyncData("area", async () => {
-  const { data } = await client.from("area").select("*");
+  const { data } = await client.from("area").select("*").order('id');
   // console.log(data);
   return data;
 });

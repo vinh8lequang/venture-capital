@@ -25,7 +25,7 @@
         cols="12"
         sm="4"
         md="3"
-        v-for="(p, index) in data.slice(0, 4)"
+        v-for="(p, index) in data"
         :key="index"
       >
         <CardProject :project="p" :link="`/projects/${p.id}`" />
@@ -37,8 +37,8 @@
 <script setup>
 const client = useSupabaseClient();
 const { data } = await useAsyncData("projects", async () => {
-  const { data } = await client.from("projects").select("*");
-  // console.log(data);
+  const { data } = await client.from("projects").select("*").eq("relevant", "1");
+  console.log(data.value);
   return data;
 });
 console.log(data);

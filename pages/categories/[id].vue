@@ -46,7 +46,7 @@
           </v-btn>
         </v-col>
         <v-col pr="8">
-          <v-btn icon="mdi-arrow-right" v-if="id < 8">
+          <v-btn icon="mdi-arrow-right" v-if="id < 7">
             <NuxtLink :to="`/categories/${next}`">Next</NuxtLink>
           </v-btn>
         </v-col>
@@ -79,7 +79,8 @@ const {
 let next = Math.min(+id + +1, 7);
 let prev = Math.max(0, +id - +1);
 
-//let projects_area = await $fetch("/server/getareas/"+id) // this needs to be changed for the project and area so that we connect
+
+
 let projects = new Array();
 let area;
 const client = useSupabaseClient();
@@ -97,6 +98,7 @@ data._value.forEach((item) => {
     area = item.area;
   }
 });
+
 console.log(area);
 </script>
 

@@ -39,14 +39,18 @@
     <div class="p-4">
       <v-row>
         <v-col cols="11" pl="8">
+          <NuxtLink :to="`/projects/${prev}`">
           <v-btn icon="mdi-arrow-left" v-if="id > 1">
-            <NuxtLink :to="`/projects/${prev}`">Prev</NuxtLink>
+            Prev
           </v-btn>
+          </NuxtLink>
         </v-col>
         <v-col pr="8">
+          <NuxtLink :to="`/projects/${next}`">
           <v-btn icon="mdi-arrow-right" v-if="id < 14">
-            <NuxtLink :to="`/projects/${next}`">Next</NuxtLink>
+            Next
           </v-btn>
+          </NuxtLink>
         </v-col>
       </v-row>
     </div>
