@@ -24,7 +24,7 @@
       </h1>
     </div>
     <div class="card">
-      <div class="grid grid-cols-2 gap-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div class="py-7 pr-7">
           <v-img :src="data[0].image" height="40vh"></v-img>
         </div>

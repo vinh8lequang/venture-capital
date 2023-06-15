@@ -1,31 +1,36 @@
 <template>
-  <v-card class="mx-auto" max-width=95% color="#f0e9e9">
-     <NuxtLink :to="link">
-      <div class="container">
-        <v-img :src="category.image" height="270px" style ="width: 130%" cover></v-img>
-        <div class="centered">{{ category.name }}</div>
+  <v-card class="container mx-auto" max-width="95%" color="#D9D9D9">
+    <NuxtLink :to="link">
+      <div class="img-container">
+        <v-img :src="category.image" height="270px" width="300px" cover></v-img>
       </div>
     </NuxtLink>
+    <v-card-text class="pa-4 text-center">
+      <div class="centered">{{ category.name }}</div>
+    </v-card-text>
   </v-card>
 </template>
 
-<style>
+<style scoped>
 .container {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-container {
+  margin-bottom: -25px;
 }
 
 .centered {
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: rgb(0, 0, 0, 0.90);
-  font-size: 15px;
+  color: rgb(0, 0, 0, 0.9);
+  font-size: 18px;
   font-weight: bold;
-  text-align: center;
   background-color: rgb(50, 68, 150, 0);
-  padding: 10px;
-  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .category-title {

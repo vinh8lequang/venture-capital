@@ -54,7 +54,7 @@ export default {
       },
       {
         title: "Projects",
-        disabled: false,
+        disabled: true,
         href: "/projects",
       },
     ],
