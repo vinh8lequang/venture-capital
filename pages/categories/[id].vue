@@ -41,14 +41,14 @@
     <div class="p-4">
       <v-row>
         <v-col cols="11" pl="8">
-          <v-btn icon="mdi-arrow-left" v-if="id > 1">
-            <NuxtLink :to="`/categories/${prev}`">Prev</NuxtLink>
-          </v-btn>
+          <NuxtLink :to="`/categories/${prev}`">
+            <v-btn icon="mdi-arrow-left" v-if="id > 1"> Prev </v-btn>
+          </NuxtLink>
         </v-col>
         <v-col pr="8">
-          <v-btn icon="mdi-arrow-right" v-if="id < 7">
-            <NuxtLink :to="`/categories/${next}`">Next</NuxtLink>
-          </v-btn>
+          <NuxtLink :to="`/categories/${next}`">
+            <v-btn icon="mdi-arrow-right" v-if="id < 7"> Next </v-btn>
+          </NuxtLink>
         </v-col>
       </v-row>
     </div>
@@ -84,8 +84,6 @@ const {
 } = useRoute();
 let next = Math.min(+id + +1, 7);
 let prev = Math.max(0, +id - +1);
-
-
 
 let projects = new Array();
 let area;

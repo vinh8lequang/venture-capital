@@ -2,6 +2,7 @@
   <v-card
     class="mx-auto"
     max-width="80%"
+    width="400px"
     height="500px"
     color="rgba(0, 0, 0, 0.1)"
     @mouseover="showText = true"
@@ -25,11 +26,7 @@
       {{ person.function }}
     </v-card-subtitle>
   </v-card>
-  <div class="pa-4" style="display: flex; justify-content: center">
-    <v-btn class="mr-2" icon="mdi-facebook"></v-btn>
-    <v-btn class="mr-2" icon="mdi-gmail"></v-btn>
-    <v-btn icon="mdi-linkedin"></v-btn>
-  </div>
+  
 </template>
 
 <style>
