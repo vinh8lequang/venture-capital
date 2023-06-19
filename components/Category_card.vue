@@ -1,6 +1,7 @@
 <template>
   <v-card class="container mx-auto" max-width="95%" color="#D9D9D9">
     <NuxtLink :to="link">
+      <!-- clickable image -->
       <div class="img-container">
         <v-img :src="category.image" height="270px" width="300px" cover></v-img>
       </div>

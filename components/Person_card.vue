@@ -1,4 +1,5 @@
 <template>
+  <!-- showText boolean for mouse hovering feature -->
   <v-card
     class="mx-auto"
     max-width="80%"
@@ -10,6 +11,7 @@
   >
     <v-img :src="person.image" height="80%" cover></v-img>
 
+    <!-- on mouse hover the person experience appears on top of the image -->
     <div class="hover-area">
       <div class="hover-text" v-if="showText">
         <div>
@@ -18,6 +20,7 @@
       </div>
     </div>
 
+    <!-- basic person info -->
     <v-card-title class="name-title">
       {{ person.name }} {{ person.lastname }}
     </v-card-title>
@@ -26,7 +29,6 @@
       {{ person.function }}
     </v-card-subtitle>
   </v-card>
-  
 </template>
 
 <style>

@@ -1,10 +1,12 @@
 <template>
   <div class="card-container">
     <v-card class="mx-auto" elevation="4">
+      <!-- clickable image -->
       <NuxtLink :to="link">
         <v-img :src="project.image" height="200px" fill></v-img>
       </NuxtLink>
 
+      <!-- short project info -->
       <v-card-text class="pa-4">
         <div class="title-and-button">
           <div class="project-name">{{ project.name }}</div>
@@ -17,7 +19,6 @@
 </template>
 
 <style scoped>
-
 .project-name {
   font-size: 20px;
   font-weight: bold;

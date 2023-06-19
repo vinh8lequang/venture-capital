@@ -1,11 +1,13 @@
 <template>
   <div>
     <v-row justify="center" no-gutters>
+      <!-- loop to display all items for footer with links -->
       <NuxtLink
         v-for="(link, index) in links"
         :key="index"
         :to="`/about/${link.url}`"
       >
+        <!-- each item is a button -->
         <v-btn color="white" variant="text" class="mx-2" rounded="xl">
           {{ link.title }}
         </v-btn>
