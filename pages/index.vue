@@ -10,6 +10,7 @@
     <div class="slogan-container">
       <p class="slogan fade-in">Where vision meets investment.</p>
     </div>
+    <!-- button to see more hidden content -->
     <div class="arrow-container">
       <div class="arrow-down" @click="scrollToContent">
         <i class="fa fa-chevron-down"></i>
@@ -21,6 +22,7 @@
   </div>
   <div class="pb-15 px-10">
     <v-row>
+      <!-- spotlight projects -->
       <v-col cols="12" sm="4" md="3" v-for="(p, index) in data" :key="index">
         <CardProject :project="p" :link="`/projects/${p.id}`" />
       </v-col>

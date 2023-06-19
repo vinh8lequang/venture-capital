@@ -1,6 +1,7 @@
 <template>
   <div class="pb-15 px-10">
     <div class="py-4">
+      <!-- breadcrumbs component -->
       <div class="my-breadcrumbs">
         <span v-for="(item, index) in items" :key="index">
           <span v-if="!item.disabled">
@@ -28,6 +29,7 @@
       </div>
 
       <div class="d-flex justify-center">
+        <!-- card with the faq text -->
         <v-card width="50%" class="pa-5">
           <v-card-title class="text-h6 text-sm-h6 text-sm-h6"
             >Below you can find the answers to some of the most common questions
@@ -59,6 +61,12 @@
             technical defensibility. Members of Horizon Equity Partners alumni
             are our first source of new investments, but we also invest in
             companies outside of HEP.
+          </p>
+          <v-card-title class="text-caption text-md-h5 font-weight-light"
+            >Who are the investors?</v-card-title
+          >
+          <p>
+            Investors in venture capital funds are typically very large institutions such as pension funds, financial firms, insurance companies, and university endowments — all of which put a small percentage of their total funds into high-risk investments.
           </p>
           <v-card-title class="text-caption text-md-h5 font-weight-light"
             >Does HEP invest globally?</v-card-title

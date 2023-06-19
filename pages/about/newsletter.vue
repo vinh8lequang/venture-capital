@@ -1,6 +1,7 @@
 <template>
   <div class="pb-15 px-10">
     <div class="py-4">
+      <!-- breadcrumbs component -->
       <div class="my-breadcrumbs">
         <span v-for="(item, index) in items" :key="index">
           <span v-if="!item.disabled">
@@ -40,6 +41,7 @@
             </div>
           </v-card-item>
           <v-card-actions>
+            <!-- text field to fill in for the subscription -->
             <v-text-field
               ref="form"
               v-model="email"
@@ -49,7 +51,7 @@
             ></v-text-field>
 
             <v-spacer></v-spacer>
-
+            <!-- submit button to proceed with the subscription -->
             <v-btn
               rounded="xl"
               size="large"
@@ -61,7 +63,7 @@
             >
               Submit
             </v-btn>
-
+            <!-- dialog popping out after successful subscribing -->
             <v-dialog v-model="dialog" width="auto">
               <v-card>
                 <v-card-text> Thank you for joining us. </v-card-text>
@@ -86,7 +88,8 @@
 <script>
 export default {
   data: () => ({
-    email: "",
+    email: '',
+    // rules to validate email
     emailRules: [
       (v) => !!v || "E-mail is required",
       (v) =>
@@ -115,6 +118,7 @@ export default {
   }),
 
   methods: {
+    //validate the form based on the rules and reset the form if the validation was successful
     async validate() {
       const { valid } = await this.$refs.form.validate();
       if (valid) {

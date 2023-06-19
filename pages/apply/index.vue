@@ -5,7 +5,7 @@
         </div>
 
           <v-sheet width="300" class="mx-auto">
-
+            <!-- form to fill in for the application -->
             <v-form ref="form">
               <v-text-field
                 v-model="name"
@@ -34,14 +34,7 @@
                 label="Phone number"
                 required
               ></v-text-field>
-
-             <!--  <v-checkbox
-                v-model="checkbox"
-                :rules="[v => !!v || 'You must agree to continue!']"
-                label="Do you agree?"
-                required
-              ></v-checkbox> -->
-
+              <!-- apply button to proceed with the application -->
               <div class="d-flex flex-column">
                 <v-btn
                   color="rgb(0,0,0, 0.4)"
@@ -51,7 +44,7 @@
                 >
                   Apply
                 </v-btn>
-
+                <!-- reset button to clear the form -->
                 <v-btn
                   color="rgb(0,0,0, 0.4)"
                   class="mt-4"
@@ -60,7 +53,7 @@
                 >
                   Clear
                 </v-btn>
-
+                <!-- dialog popping out after successful application -->
                 <v-dialog
                   v-model="dialog"
                   width="auto"
@@ -93,24 +86,30 @@
       surname: '',
       email: '',
       phone: '',
+      // rules to validate name
       nameRules: [
         v => !!v || 'Name is required'
       ],
+      // rules to validate surname
       surnameRules: [
         v => !!v || 'Surname is required'
       ],
+      // rules to validate email
       emailRules: [
         v => !!v || 'E-mail is required',
         v => /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()\\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v) || 'E-mail must be valid',
       ],
+      // rules to validate phone number
       phoneRules: [
         v => !!v || 'Phone number is required',
         v => (v.length > 9 && /[0-9-]+/.test(v)) || 'Phone number needs to be at least 9 digits'
       ],
+      // boolean to open the successful application dialog when the validation was successful
       dialog: false,
     }),
 
     methods: {
+      //validate the form based on the rules and reset the form if the validation was successful
       async validate () {
         const { valid } = await this.$refs.form.validate()
 
@@ -119,9 +118,11 @@
           this.$refs.form.reset()
         }
       },
+      //reset the form
       reset () {
         this.$refs.form.reset()
       },
+      //open the dialog
       open () {
         this.dialog = true
       }

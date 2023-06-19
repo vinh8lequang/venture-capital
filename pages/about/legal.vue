@@ -1,6 +1,7 @@
 <template>
   <div class="pb-15 px-10">
     <div class="py-4">
+      <!-- breadcrumbs component -->
       <div class="my-breadcrumbs">
         <span v-for="(item, index) in items" :key="index">
           <span v-if="!item.disabled">
@@ -28,6 +29,7 @@
       </div>
 
       <div class="d-flex justify-center">
+        <!-- card with the legal text -->
         <v-card width="50%" class="pa-5">
           <v-card-title class="text-caption text-md-h5 font-weight-light"
             >Terms of use</v-card-title
