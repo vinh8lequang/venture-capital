@@ -25,4 +25,11 @@ export default defineNuxtConfig({
       ],
     },
   },
+  routeRules: {
+    "/": { prerender: true },
+    "/categories/**": { isr: true },
+    "/projects/**": { isr: true },
+    "/team": { isr: true },
+    "/about/**": { prerender: true },
+  },
 });
