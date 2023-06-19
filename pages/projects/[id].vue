@@ -30,7 +30,7 @@
         </div>
         <v-col>
           <v-row>
-            <Person_card :person=data[0].people />
+            <Person_card :person="data[0].people" />
           </v-row>
         </v-col>
       </div>
@@ -41,59 +41,48 @@
       Description:
     </v-card-title>
     <div class="py-4"></div>
-    
 
     <div class="py-7 pl-7">
-          <p class="mb text-2xl">
-            {{ data[0].longDescription }}
-          </p>
-        </div>
+      <p class="mb text-2xl">
+        {{ data[0].longDescription }}
+      </p>
+    </div>
 
     <div class="p-4">
       <v-row>
         <v-col cols="11" pl="8">
           <NuxtLink :to="`/projects/${prev}`">
-          <v-btn icon="mdi-arrow-left" v-if="id > 1">
-            Prev
-          </v-btn>
+            <v-btn icon="mdi-arrow-left" v-if="id > 1"> Prev </v-btn>
           </NuxtLink>
         </v-col>
         <v-col pr="8">
           <NuxtLink :to="`/projects/${next}`">
-          <v-btn icon="mdi-arrow-right" v-if="id < 14">
-            Next
-          </v-btn>
+            <v-btn icon="mdi-arrow-right" v-if="id < 14"> Next </v-btn>
           </NuxtLink>
         </v-col>
       </v-row>
     </div>
-
-    <!-- <div calss="pb-15">
-      <v-row>
-        <v-col cols="12" sm="1" md="4" v-for="(c, index) in project.Categories" :key="index">
-          <Category_card_id :category="c" />
-        </v-col>
-      </v-row>
-    </div> -->
   </div>
 </template>
 
 <script setup>
 const { id } = useRoute().params;
-let next = Math.min(+id + +1, 15);
-let prev = Math.max(0, +id - +1);
+let next = Math.min(+id + +1, 15); // we setup the next id to be id+1 but we keep the maximum to 7 as there are only 15 projects
+let prev = Math.max(0, +id - +1); // same but with minumum being 0
 
-// const { data } = await useFetch("/api/projects/" + id);
-const client = useSupabaseClient();
+const client = useSupabaseClient(); //connection to the database
 const { data } = await useAsyncData("projects", async () => {
-  const { data } = await client.from("projects").select("*, people(*)").eq("id", id);
-  // console.log(data);
+  const { data } = await client
+    .from("projects")
+    .select("*, people(*)")
+    .eq("id", id); //we get all the projects from the database and return only the interested project
   return data;
 });
 </script>
 
 <script>
 export default {
+  //setup needed for the breadcrumbs
   data: () => ({
     items: [
       {

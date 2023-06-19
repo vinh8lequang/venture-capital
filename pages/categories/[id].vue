@@ -65,6 +65,7 @@
     <div class="py-4"></div>
 
     <v-row>
+      <!-- we insert here all the projects that have been found for a specific area -->
       <v-col
         cols="12"
         sm="5"
@@ -82,23 +83,23 @@
 const {
   params: { id },
 } = useRoute();
-let next = Math.min(+id + +1, 7);
-let prev = Math.max(0, +id - +1);
+let next = Math.min(+id + +1, 7); // we setup the next id to be id+1 but we keep the maximum to 7 as there are only 8 areas
+let prev = Math.max(0, +id - +1); // same but with minumum being 0
 
 let projects = new Array();
 let area;
-const client = useSupabaseClient();
+const client = useSupabaseClient(); //connection to the database
 const { data } = await useAsyncData("areaproject", async () => {
   const { data } = await client
     .from("areaproject")
-    .select("project_id, area_id, projects(*), area(*)");
+    .select("project_id, area_id, projects(*), area(*)"); //we get the data of the table projectarea. The table projects and area are also joined.
   return data;
 });
 
 data._value.forEach((item) => {
   if (item.area_id == id) {
     console.log("project found");
-    projects.push(item.projects);
+    projects.push(item.projects); // we extract all the different projects that are related to a specific category
     area = item.area;
   }
 });
@@ -108,6 +109,7 @@ console.log(area);
 
 <script>
 export default {
+  //setup needed for the breadcrumbs
   data: () => ({
     items: [
       {

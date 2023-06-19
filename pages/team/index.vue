@@ -25,6 +25,7 @@
     </div>
     <div class="py-4"></div>
     <v-row>
+      <!-- for each person in the database we create a person card with all the necessary info about the person. -->
       <v-col cols="12" sm="6" md="4" v-for="(p, index) in data" :key="index">
         <Person_card :person="p" />
         <div class="pa-4" style="display: flex; justify-content: center">
@@ -38,15 +39,16 @@
 </template>
 
 <script setup>
-const client = useSupabaseClient();
+const client = useSupabaseClient(); //connection to the database
 const { data } = await useAsyncData("people", async () => {
-  const { data } = await client.from("people").select("*");
+  const { data } = await client.from("people").select("*"); //we get all the people from the people table
   return data;
 });
 </script>
 
 <script>
 export default {
+  //required setup for the breadcrumbs
   data: () => ({
     items: [
       {

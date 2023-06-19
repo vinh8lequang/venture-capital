@@ -25,6 +25,7 @@
     </div>
     <div class="py-4"></div>
     <v-row>
+      <!-- we insert here all the different areas that we get from the database in the script. Each areas create a different card displaying all the needed informations -->
       <v-col cols="12" sm="6" md="4" v-for="(a, index) in data" :key="index">
         <Category_card :category="a" :link="`/categories/${a.id}`" />
       </v-col>
@@ -33,15 +34,16 @@
 </template>
 
 <script setup>
-const client = useSupabaseClient();
+const client = useSupabaseClient(); //we connect to the database
 const { data } = await useAsyncData("area", async () => {
-  const { data } = await client.from("area").select("*").order('id');
+  const { data } = await client.from("area").select("*").order("id"); //we get all the the different areas from the database in order of their id
   // console.log(data);
   return data;
 });
 </script>
 
 <script>
+//necessary setup for the breadcrumbs
 export default {
   data: () => ({
     items: [

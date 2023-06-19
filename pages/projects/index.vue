@@ -26,6 +26,7 @@
     <div class="py-4"></div>
 
     <v-row>
+      <!-- we insert all the project that we get from the database. Each project creates a project card element.  -->
       <v-col cols="12" sm="4" md="3" v-for="(p, index) in data" :key="index">
         <CardProject :project="p" :link="`/projects/${p.id}`" />
       </v-col>
@@ -34,10 +35,9 @@
 </template>
 
 <script setup>
-const client = useSupabaseClient();
+const client = useSupabaseClient(); //connection to the database
 const { data } = await useAsyncData("projects", async () => {
-  const { data } = await client.from("projects").select("*").order("id");
-  // console.log(data);
+  const { data } = await client.from("projects").select("*").order("id"); //we get all the different projects in order of id
   return data;
 });
 console.log(data);
@@ -45,6 +45,7 @@ console.log(data);
 
 <script>
 export default {
+  //setup of the breadcrumbs
   data: () => ({
     items: [
       {
